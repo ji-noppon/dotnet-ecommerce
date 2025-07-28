@@ -1,0 +1,105 @@
+# Visual Studio / Rider / IDE
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/packages/
+
+# ASP.NET Core
+wwwroot/lib/
+
+# Runtime files
+*.pidb
+*.svclog
+*.log
+*.vspscc
+
+# User-specific files
+*.dbmdl
+*.jfm
+*.vscode/
+
+# Publish output
+publish/
+
+# IIS Express
+/.vs/IISExpress/
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# DotCover
+*.dotCover
+
+# Backup & report files
+*.bak
+*.backup
+*.BLOB
+*.cache
+*.pdb
+*.mdb
+*.pidb
+*.psess
+*.vsp
+*.vsps
+*.etl
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# appsettings sensitive files
+appsettings.json
+appsettings.*.json
+
+# Environment variable files
+.env
+.env.*
+
+# User secrets (dotnet user-secrets)
+secrets/
+
+# Logs
+logs/
+*.log
+
+# Coverage results
+coverage/
+*.coverage
+*.coveragexml
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Test result files
+TestResults/
+*.trx
+
+# Others
+*.swp
+*.DS_Store
+*.class
+*.cache
+*.project
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+
