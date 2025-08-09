@@ -14,6 +14,7 @@ namespace ecommerce.Infrastructure
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthenService, AuthenService>();
+            services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

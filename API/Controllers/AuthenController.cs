@@ -20,10 +20,10 @@ namespace ecommerce.API.Controllers
         {
             try
             {
-                var isLogin = await _userService.Login(req);
-                if (isLogin)
+                var user = await _userService.Login(req);
+                if (user != null)
                 {
-                    return Ok(new { message = "success" });
+                    return Ok(new { message = "success", data = user });
                 } else
                 {
                     return Unauthorized(new { message = "login failed" });

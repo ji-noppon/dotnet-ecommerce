@@ -1,4 +1,5 @@
 ﻿
+using ecommerce.Application.DTOs.Dto;
 using ecommerce.Domain.Entities;
 using ecommerce.Domain.Interfaces;
 using ecommerce.Infrastructure.Data;
@@ -21,7 +22,33 @@ namespace ecommerce.Infrastructure.Repositories
         }
         public async Task<Users?> GetUserByUsername(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+        }
+        public async Task<Users?> UpdateUser(string username, UserUpdateDto updateDto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+
+            if (user == null)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(updateDto.FirstName))
+                user.FirstName = updateDto.FirstName;
+
+            if (!string.IsNullOrWhiteSpace(updateDto.LastName))
+                user.LastName = updateDto.LastName;
+
+            if (!string.IsNullOrWhiteSpace(updateDto.Email))
+                user.Email = updateDto.Email;
+
+            if (!string.IsNullOrWhiteSpace(updateDto.RefreshToken))
+            {
+               user.RefreshToken = updateDto.RefreshToken;
+               user.RefreshTokenExpiresAt = DateTime.UtcNow.AddDays(7);
+            }
+               
+            await _context.SaveChangesAsync();
+
+            return user;
         }
     }
 }

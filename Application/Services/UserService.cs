@@ -20,8 +20,10 @@ namespace ecommerce.Application.Services
             var user = new Users
             {
                 Email = userDTO.Email,
-                UserName = userDTO.Username,
-                FirstName = userDTO.Firstname,
+                Username = userDTO.Username,
+                FirstName = userDTO.FirstName,
+                LastName = userDTO.LastName,
+                Password = userDTO.Password,
             };
             user.Password = _passwordHasher.HashPassword(user, userDTO.Password);
             return await _repository.UserCreate(user);

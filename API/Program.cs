@@ -1,6 +1,7 @@
+using ecommerce.Infrastructure;
+using ecommerce.Infrastructure.Auth;
 using ecommerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using ecommerce.Infrastructure;
 
 var config = new ConfigurationBuilder()
     .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "API"))
@@ -19,7 +20,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddJwtAuthentication(builder.Configuration);
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
