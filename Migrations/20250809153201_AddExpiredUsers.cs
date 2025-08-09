@@ -1,28 +1,28 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ecommerce.Migrations
 {
     /// <inheritdoc />
-    public partial class EditUsers : Migration
+    public partial class AddExpiredUsers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "FirstName",
+            migrationBuilder.AddColumn<DateTime>(
+                name: "RefreshTokenExpiresAt",
                 table: "Users",
-                type: "text",
-                nullable: false,
-                defaultValue: "");
+                type: "timestamp with time zone",
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "FirstName",
+                name: "RefreshTokenExpiresAt",
                 table: "Users");
         }
     }
